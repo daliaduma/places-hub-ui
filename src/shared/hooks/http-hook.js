@@ -26,9 +26,7 @@ export const useHttpClient = () => {
           };
         }
 
-				console.log(opt);
-
-        const response = await fetch("http://localhost:5000/api" + url, {
+        const response = await fetch(process.env.REACT_APP_BACKEND_URL + url, {
           ...opt,
           signal: httpAbortCtrl.signal,
         });

@@ -16,7 +16,7 @@ const UserItem = (props) => {
                 props.image.includes("http://") ||
                 props.image.includes("https://")
                   ? props.image
-                  : `http://localhost:5000/${props.image}`
+                  : `${process.env.REACT_APP_ASSET_URL}/${props.image}`
               }
               alt={props.name}
             />

@@ -14,12 +14,11 @@ import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHistory } from "react-router-dom";
 import ImageUpload from "../../shared/components/FormElements/ImageUpload";
-import Card from "../../shared/components/UIElements/Card";
 
 const NewPlace = () => {
   const history = useHistory();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  const { userId, token } = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
   const [formState, inputHandler] = useForm(
     {
       title: {
@@ -49,7 +48,6 @@ const NewPlace = () => {
       formData.append("title", formState.inputs.title.value);
       formData.append("description", formState.inputs.description.value);
       formData.append("address", formState.inputs.address.value);
-      formData.append("creator", userId);
       formData.append("image", formState.inputs.image.value);
 
       await sendRequest(
