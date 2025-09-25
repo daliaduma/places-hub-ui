@@ -57,6 +57,7 @@ const NewPlace = () => {
           body: formData,
 	        headers: {
 						Authorization: "Bearer " + token,
+		        "Content-Type": "application/json"
 	        }
         },
         true,
