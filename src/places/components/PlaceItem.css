@@ -1,0 +1,64 @@
+.place-item:not(:last-of-type) {
+  margin-bottom: 48px;
+}
+
+.place-item__content {
+  padding: 0;
+}
+
+.place-item__info {
+  padding: 24px 32px;
+  text-align: center;
+}
+
+.place-item__image {
+  width: 100%;
+  height: 12.5rem;
+  margin-right: 1.5rem;
+}
+
+.place-item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.place-item__info h2,
+.place-item__info h3,
+.place-item__info p {
+	font-weight: normal;
+}
+
+.place-item__info h2 {
+	color: var(--primary);
+	margin-bottom: 12px;
+}
+
+.place-item__info h3 {
+	margin-bottom: 12px;
+}
+
+.place-item__actions {
+  padding: 24px 32px;
+  text-align: center;
+	border-top: 1px solid rgba(116, 123, 140, 0.2);
+}
+
+.place-item__modal-content {
+  padding: 0;
+}
+
+.place-item__modal-actions {
+  text-align: right;
+}
+
+.map-container {
+  height: 15rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .place-item__image {
+    height: 20rem;
+  }
+}

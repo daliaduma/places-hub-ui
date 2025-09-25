@@ -1,0 +1,28 @@
+.authentication__header {
+  color: white;
+}
+
+.authentication {
+  max-width: 500px;
+  margin: 0 auto;
+	padding: 32px;
+}
+.authentication a {
+	color: var(--primary)
+}
+.authentication h2 {
+	font-weight: normal;
+}
+
+.authentication__action {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+.authentication__action p {
+	padding-right: 16px;
+}
+hr {
+	border-color: rgba(116, 123, 140, 0.09);
+	margin: 24px 0;
+}

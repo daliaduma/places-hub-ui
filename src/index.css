@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Zalando+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+	--primary: oklch(52% 0.105 223.128);
+	--secondary: oklch(60.9% 0.126 221.723);
+	--shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+	--shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+	--border: 1px solid oklch(87.2% 0.01 258.338);
+	--text-primary: oklch(20.8% 0.042 265.755);
+	--text-secondary: #747b8c;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: oklch(92.8% 0.006 264.531);
+}
+
+body * {
+	color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
+}
+li {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	color: var(--text-secondary);
+}
+
+.text-primary {
+	color: var(--primary);
+}
+.text-bold {
+	font-weight: bold;
+}
+
+body {
+	background-image: url("../public/6.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.main-container {
+	text-align: center;
+	max-width: 700px;
+	margin: 54px auto 0;
+	padding-top: 0px;
+}
+
+.overlay {
+	background-color: rgba(255, 255, 255, 0.9) !important;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+.main-container h1 {
+	font-size: 2rem;
+	font-weight: normal;
+}
+.main-container h2 {
+	font-size: 54px;
+	font-weight: normal;
+	margin: 8px 0 32px 0;
+}
+.main-container p {
+	font-size: 1.5625rem;
+}
+.main-container a {
+	margin-top: 48px;
+}
+
+.slide-in-left-enter {
+  transform: translateX(-100%);
+}
+
+.slide-in-left-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 200ms;
+}
+
+.slide-in-left-exit {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.slide-in-left-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 200ms;
+}
+
+.center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
