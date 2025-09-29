@@ -54,7 +54,7 @@ const Auth = () => {
             isValid: false,
           },
           image: {
-            value: null,
+            value: "",
             isValid: false,
           },
         },

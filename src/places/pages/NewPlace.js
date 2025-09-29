@@ -45,21 +45,30 @@ const NewPlace = () => {
     event.preventDefault();
     try {
       const formData = new FormData();
-      formData.append("title", formState.inputs.title.value);
-      formData.append("description", formState.inputs.description.value);
-      formData.append("address", formState.inputs.address.value);
       formData.append("image", formState.inputs.image.value);
+
+			const { url } = await sendRequest('/upload', {
+		    method: "POST",
+		    body: formData,
+		    headers: {
+					Authorization: "Bearer " + token,
+		    }
+		  }, true);
 
       await sendRequest(
         "/places",
         {
           method: "POST",
-          body: formData,
+          body: JSON.stringify({
+						title: formState.inputs.title.value,
+	          description: formState.inputs.description.value,
+	          address: formState.inputs.address.value,
+						image: url,
+          }),
 	        headers: {
 						Authorization: "Bearer " + token,
 	        }
-        },
-        true,
+        }
       );
       history.push("/");
     } catch (error) {}
@@ -68,7 +77,7 @@ const NewPlace = () => {
   return (
     <>
       <ErrorModal error={error} onClear={clearError} />
-      <form className="place-form" onSubmit={placeSubmitHandler}>
+      <form className="place-form" method={'POST'} onSubmit={placeSubmitHandler}>
         <div className={"header"}>
           <h1>Create a new place</h1>
         </div>
