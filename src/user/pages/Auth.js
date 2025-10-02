@@ -54,7 +54,7 @@ const Auth = () => {
             isValid: false,
           },
           image: {
-            value: "",
+            value: null,
             isValid: false,
           },
         },
@@ -78,24 +78,33 @@ const Auth = () => {
         auth.login(responseData.userId, responseData.token);
       } catch (err) {}
     } else {
-      try {
-        const formData = new FormData();
-        formData.append("email", formState.inputs.email.value);
-        formData.append("name", formState.inputs.name.value);
-        formData.append("password", formState.inputs.password.value);
-        formData.append("image", formState.inputs.image.value);
-        const responseData = await sendRequest(
-          "/users/signup",
-          {
-            method: "POST",
-            body: formData,
-          },
-          true,
-        );
-        auth.login(responseData.userId, responseData.token);
-      } catch (error) {}
-    }
-  };
+    try {
+      const formData = new FormData();
+      formData.append("image", formState.inputs.image.value);
+      const { url } = await sendRequest('/upload', {
+	      method: "POST",
+	      body: formData
+      }, true);
+
+      const responseData = await sendRequest(
+        "/users/signup",
+        {
+          method: "POST",
+	        headers: {
+		        "Content-Type": "application/json",
+	        },
+          body:  JSON.stringify({
+						name: formState.inputs.name.value,
+	          email: formState.inputs.email.value,
+	          password: formState.inputs.password.value,
+	          image: url
+          }),
+        },
+      );
+      auth.login(responseData.userId, responseData.token);
+    } catch (error) {}
+  }
+};
 
   return (
     <>
